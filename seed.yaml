@@ -1,0 +1,28 @@
+apiVersion: seed.ibm.com/v1
+kind: Function
+metadata:
+  name: sendSms
+spec:
+  packages:
+  - name: ${projectName}
+    actions:
+    - codeUri: https://rawgit.com/kerryspchang/twilio-sendSms/master/lib/sendSms.zip
+      runtime: nodejs:6
+      parameters:
+      - name: ssid
+        valueFrom:
+          secretKeyRef:
+            name: ${projectName}-secret
+            key: ssid  
+      - name: token
+        valueFrom:
+          secretKeyRef:
+            name: ${projectName}-secret
+            key: token  
+      - name: from
+        valueFrom:
+          secretKeyRef:
+            name: ${projectName}-secret
+            key: from  
+
+

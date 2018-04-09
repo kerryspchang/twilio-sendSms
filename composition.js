@@ -1,1 +1,1 @@
-composer.sequence(`/${namespace}/${projectName}/sendSms`)
+composer.sequence(`/${namespace}/${projectName}/sendsms`)
